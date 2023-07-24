@@ -1,5 +1,7 @@
 package ManageTimeForCompany;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Validation {
@@ -80,5 +82,24 @@ public class Validation {
     public static String checkEmail(String massage){
         System.out.println(massage);
         return null;
+    }
+
+    public static void huyduCheck(List<String> adr){
+        while(true){
+            String input = scanner.nextLine();
+            try{
+                    processEpl(adr);
+                    Address address = new Address(Integer.parseInt(adr.get(0)), adr.get(1),adr.get(2));
+            }catch (Exception e){
+                System.out.println("Vui lòng nhập đúng định dạng");
+            }
+        }
+    }
+
+    private static void processEpl(List<String> adr) {
+        if(!adr.get(3).matches("")){
+            throw  new RuntimeException("sai email");
+        }
+
     }
 }
